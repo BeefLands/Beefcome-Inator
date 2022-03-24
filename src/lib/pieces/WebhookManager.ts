@@ -38,7 +38,7 @@ export class WebhookManager extends Piece<WebhookManagerOptions> {
 			this.webhook =
 				webhooks.find((webhook) => webhook.owner?.id === client.user.id) ??
 				(await channel.createWebhook(this.options.webhookName, {
-					avatar: this.options.webhookAvatar ?? client.user.displayAvatarURL()
+					avatar: this.options.webhookAvatar ?? client.user.displayAvatarURL({ format: "png" })
 				}));
 		});
 		return super.onLoad();
