@@ -4,6 +4,6 @@ import type { GuildMember } from "discord.js";
 export class GuildMemberAddListener extends Listener<typeof Events.GuildMemberAdd> {
 	public run(member: GuildMember) {
 		if (member.pending) return;
-		this.container.welcomeMember(member);
+		return this.container.stores.get("webhooks").get("welcome").sendWelcome(member);
 	}
 }
