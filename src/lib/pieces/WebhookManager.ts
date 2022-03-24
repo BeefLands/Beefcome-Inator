@@ -29,6 +29,10 @@ export class WebhookManager extends Piece<WebhookManagerOptions> {
 		return this.webhook.avatarURL();
 	}
 
+	public get guildId() {
+		return this.webhook.guildId;
+	}
+
 	public override onLoad() {
 		this.container.client.on("ready", async (client) => {
 			const channel = await this.container.client.channels.fetch(this.options.channelId);

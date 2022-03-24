@@ -1,4 +1,5 @@
 import { Store } from "@sapphire/framework";
+import type { StaffWebhook } from "../../webhooks/StaffWebhook";
 import type { WelcomeWebhook } from "../../webhooks/WelcomeWebhook";
 import { WebhookManager } from "../pieces/WebhookManager";
 
@@ -15,4 +16,5 @@ export class WebhookManagerStore extends Store<WebhookManager> {
 
 export interface WebhookManagerStoreEntries {
 	welcome: WelcomeWebhook;
+	staff: StaffWebhook;
 }

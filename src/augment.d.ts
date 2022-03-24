@@ -5,7 +5,9 @@ export declare global {
 		interface ProcessEnv {
 			DISCORD_TOKEN: string;
 			WELCOME_CHANNEL: string;
+			STAFF_CHANNEL: string;
 			BEEF_ROLE: string;
+			STAFF_ROLES: string[];
 		}
 	}
 }
