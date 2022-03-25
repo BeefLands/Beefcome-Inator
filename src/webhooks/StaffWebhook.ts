@@ -22,6 +22,8 @@ export class StaffWebhook extends WebhookManager {
 				embed.addField(role.name, role.members.map((member) => member.toString()).join("\n") ?? "None", true);
 		});
 		embed.addField("Special Kid", "<@628829764135813160>");
-		return this.send({ embeds: [embed] });
+		return process.env.STAFF_MESSAGE
+			? this.editMessage(process.env.STAFF_MESSAGE, { embeds: [embed] })
+			: this.send({ embeds: [embed] });
 	}
 }

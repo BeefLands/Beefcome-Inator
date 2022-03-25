@@ -8,6 +8,7 @@ export declare global {
 			STAFF_CHANNEL: string;
 			BEEF_ROLE: string;
 			STAFF_ROLES: string[];
+			STAFF_MESSAGE?: string;
 		}
 	}
 }
