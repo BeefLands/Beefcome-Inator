@@ -25,5 +25,9 @@ export class StaffWebhook extends WebhookManager {
 		return process.env.STAFF_MESSAGE
 			? this.editMessage(process.env.STAFF_MESSAGE, { embeds: [embed] })
 			: this.send({ embeds: [embed] });
+		embed.addField("Supreme Leader", "<@511209271678074891>");
+		return process.env.STAFF_MESSAGE
+			? this.editMessage(process.env.STAFF_MESSAGE, { embeds: [embed] })
+			: this.send({ embeds: [embed] });
 	}
 }
