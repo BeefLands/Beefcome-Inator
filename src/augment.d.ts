@@ -7,6 +7,7 @@ export declare global {
 			WELCOME_CHANNEL: string;
 			STAFF_CHANNEL: string;
 			BEEF_ROLE: string;
+			BOT_ROLE: string;
 			STAFF_ROLES: string[];
 			STAFF_MESSAGE?: string;
 		}

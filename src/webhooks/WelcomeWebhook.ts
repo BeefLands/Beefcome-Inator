@@ -9,7 +9,7 @@ import { WebhookManager, WebhookManagerOptions } from "../lib/pieces/WebhookMana
 })
 export class WelcomeWebhook extends WebhookManager {
 	public async sendWelcome(member: GuildMember) {
-		await member.roles.add(process.env.BEEF_ROLE);
+		await member.roles.add(member.user.bot ? process.env.BOT_ROLE : process.env.BEEF_ROLE);
 		return this.send({
 			embeds: [
 				new MessageEmbed()
