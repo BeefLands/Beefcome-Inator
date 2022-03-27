@@ -20,7 +20,7 @@ export class StaffWebhook extends WebhookManager {
 					const role = roles.get(roleID)!;
 					return {
 						name: role.name,
-						value: role.members.map((member) => member.displayName).join("\n") ?? "None",
+						value: role.members.map((member) => member.toString()).join("\n") ?? "None",
 						inline: true
 					};
 				}),
