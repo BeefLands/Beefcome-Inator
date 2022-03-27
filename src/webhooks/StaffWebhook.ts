@@ -15,13 +15,26 @@ export class StaffWebhook extends WebhookManager {
 		const embed = new MessageEmbed()
 			.setColor("#A52A2A")
 			.setTitle("BeefLands Staff Team")
-			.setFooter({ text: "⌚ Staff team gets updated every hour" });
-		process.env.STAFF_ROLES.forEach((roleId) => {
-			const role = roles.get(roleId);
-			if (role)
-				embed.addField(role.name, role.members.map((member) => member.toString()).join("\n") ?? "None", true);
-		});
-embed.addFields({ name: "Special Kid", value: "<@628829764135813160>" }, { name: "Supreme Leader", value: "<@511209271678074891>"  });
+			.addFields(
+				...process.env.STAFF_ROLES.filter((roleID) => roles.has(roleID)).map((roleID) => {
+					const role = roles.get(roleID)!;
+					return {
+						name: role.name,
+						value: role.members.map((member) => member.displayName).join("\n") ?? "None",
+						inline: true
+					};
+				}),
+				{
+					name: "Special Kid",
+					value: "<@628829764135813160>"
+				},
+				{
+					name: "Supreme Leader",
+					value: "<@511209271678074891>"
+				}
+			)
+			.setFooter({ text: "⌚ Staff team gets updated every hour" })
+			.setTimestamp();
 		return process.env.STAFF_MESSAGE
 			? this.editMessage(process.env.STAFF_MESSAGE, { embeds: [embed] })
 			: this.send({ embeds: [embed] });
