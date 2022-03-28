@@ -9,6 +9,7 @@ export declare global {
 			BEEF_ROLE: string;
 			BOT_ROLE: string;
 			STAFF_ROLES: string[];
+			IGNORE_DOUBLE: string[];
 			STAFF_MESSAGE?: string;
 		}
 	}
